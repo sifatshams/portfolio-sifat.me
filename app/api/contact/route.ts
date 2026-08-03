@@ -1,4 +1,3 @@
-
 import { sendBrevoEmail } from "@/lib/brevo";
 import { NextResponse } from "next/server";
 import { z } from "zod";
@@ -8,22 +7,22 @@ const contactMessageSchema = z.object({
   name: z
     .string()
     .trim()
-    .min(2, { message: "Name must be at least 2 characters long" })
-    .max(100, { message: "Name must be less than 100 characters long" }),
+    .min(2, { message: "Name must be at least 2 characters long." })
+    .max(100, { message: "Name must be less than 100 characters long." }),
 
-  email: z.string().trim().email("Please provide a valid email address"),
+  email: z.string().trim().email("Please provide a valid email address."),
 
   subject: z
     .string()
     .trim()
-    .min(3, "Subject must be at least 3 characters")
-    .max(200, "Subject is too long"),
+    .min(3, "Subject must be at least 3 characters.")
+    .max(200, "Subject is too long."),
 
   message: z
     .string()
     .trim()
-    .min(10, "Message must be at least 10 characters")
-    .max(5000, "Message is too long"),
+    .min(10, "Message must be at least 10 characters.")
+    .max(5000, "Message is too long."),
 });
 
 export async function POST(request: Request) {
