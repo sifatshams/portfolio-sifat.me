@@ -133,7 +133,7 @@ export function Navbar() {
             </a>
             <MagneticButton
               as="a"
-              href="/resume.pdf"
+              href="/my-resume.pdf"
               download
               className="flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-[13px] font-semibold text-background transition-transform"
             >
