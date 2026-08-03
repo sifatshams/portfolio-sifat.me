@@ -1,12 +1,13 @@
-import type { Metadata, Viewport } from "next";
-import { Sora, Inter, JetBrains_Mono } from "next/font/google";
-import "./globals.css";
-import { SITE } from "@/lib/data";
-import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { ScrollProgress } from "@/components/ui/scroll-progress";
+import { Navbar } from "@/components/navbar";
+import Providers from "@/components/providers";
 import { CursorFollower } from "@/components/ui/cursor-follower";
 import { LoadingScreen } from "@/components/ui/loading-screen";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
+import { SITE } from "@/lib/data";
+import type { Metadata, Viewport } from "next";
+import { Inter, JetBrains_Mono, Sora } from "next/font/google";
+import "./globals.css";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -86,13 +87,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sora.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
+    <html
+      lang="en"
+      className={`${sora.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+    >
       <body>
         <LoadingScreen />
         <ScrollProgress />
         <CursorFollower />
         <Navbar />
-        <main>{children}</main>
+        <Providers>
+          <main>{children}</main>
+        </Providers>
         <Footer />
       </body>
     </html>
