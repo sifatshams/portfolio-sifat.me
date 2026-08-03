@@ -27,6 +27,14 @@ const contactMessageSchema = z.object({
 
 export async function POST(request: Request) {
   try {
+    console.log({
+      host: process.env.BREVO_HOST,
+      port: process.env.BREVO_PORT,
+      user: process.env.BREVO_USER,
+      hasPass: Boolean(process.env.BREVO_PASS),
+      sender: process.env.BREVO_SENDER,
+      receiver: process.env.CONTACT_RECEIVER_EMAIL,
+    });
     const body = await request.json();
 
     const validationResult = contactMessageSchema.safeParse(body);
