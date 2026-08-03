@@ -1,8 +1,9 @@
-import transporter from "@/lib/transporter";
+
+import { sendBrevoEmail } from "@/lib/brevo";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 
-// validation
+// Validation
 const contactMessageSchema = z.object({
   name: z
     .string()
@@ -27,14 +28,6 @@ const contactMessageSchema = z.object({
 
 export async function POST(request: Request) {
   try {
-    console.log({
-      host: process.env.BREVO_HOST,
-      port: process.env.BREVO_PORT,
-      user: process.env.BREVO_USER,
-      hasPass: Boolean(process.env.BREVO_PASS),
-      sender: process.env.BREVO_SENDER,
-      receiver: process.env.CONTACT_RECEIVER_EMAIL,
-    });
     const body = await request.json();
 
     const validationResult = contactMessageSchema.safeParse(body);
@@ -52,80 +45,70 @@ export async function POST(request: Request) {
 
     const { name, email, subject, message } = validationResult.data;
 
-    await transporter.sendMail({
-      from: `"Sifat Portfolio" <${process.env.BREVO_SENDER}>`,
-      to: process.env.CONTACT_RECEIVER_EMAIL,
-      replyTo: email,
-      subject: `New Contact Message: ${subject}`,
-      text: `
-    New Contact Message
+    const html = `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="UTF-8" />
+          <title>New Contact Message</title>
+        </head>
 
-    Name: ${name}
-    Email: ${email}
-    Subject: ${subject}
-
-    Message:
-    ${message}
-      `,
-
-      html: `
-        <!DOCTYPE html>
-        <html>
-          <head>
-            <meta charset="UTF-8" />
-            <title>New Contact Message</title>
-          </head>
-
-          <body
+        <body
+          style="
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+          "
+        >
+          <div
             style="
-              margin: 0;
-              padding: 40px 20px;
-              background-color: #f4f4f4;
-              font-family: Arial, sans-serif;
+              max-width: 600px;
+              margin: 0 auto;
+              padding: 30px;
+              background-color: #ffffff;
+              border-radius: 12px;
             "
           >
-            <div
-              style="
-                max-width: 600px;
-                margin: 0 auto;
-                padding: 30px;
-                background-color: #ffffff;
-                border-radius: 12px;
-              "
-            >
-              <h2 style="margin-top: 0;">
-                New Contact Message
-              </h2>
+            <h2 style="margin-top: 0;">
+              New Contact Message
+            </h2>
 
-              <p>
-                <strong>Name:</strong>
-                ${name}
-              </p>
+            <p>
+              <strong>Name:</strong>
+              ${name}
+            </p>
 
-              <p>
-                <strong>Email:</strong>
-                ${email}
-              </p>
+            <p>
+              <strong>Email:</strong>
+              ${email}
+            </p>
 
-              <p>
-                <strong>Subject:</strong>
-                ${subject}
-              </p>
+            <p>
+              <strong>Subject:</strong>
+              ${subject}
+            </p>
 
-              <hr />
+            <hr />
 
-              <h3>Message</h3>
+            <h3>Message</h3>
 
-              <p style="white-space: pre-line;">
-                ${message}
-              </p>
-            </div>
-          </body>
-        </html>
-      `,
+            <p style="white-space: pre-line;">
+              ${message}
+            </p>
+          </div>
+        </body>
+      </html>
+    `;
+
+    await sendBrevoEmail({
+      to: process.env.CONTACT_RECEIVER_EMAIL!,
+      replyTo: email,
+      subject: `New Contact Message: ${subject}`,
+      html,
+      senderName: "Sifat Portfolio",
     });
 
-    // success response
     return NextResponse.json(
       {
         success: true,
@@ -135,6 +118,7 @@ export async function POST(request: Request) {
     );
   } catch (error) {
     console.error("Contact API Error:", error);
+
     return NextResponse.json(
       {
         success: false,

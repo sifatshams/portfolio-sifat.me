@@ -1,12 +1,12 @@
 import axios from "axios";
 
-type SendBrevoEmailParams = {
+export interface SendBrevoEmailParams {
   to: string;
+  replyTo?: string;
   subject: string;
   html: string;
   senderName?: string;
-};
-
+}
 export const sendBrevoEmail = async ({
   to,
   subject,
