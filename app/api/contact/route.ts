@@ -2,6 +2,7 @@ import transporter from "@/lib/transporter";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 
+// validation
 const contactMessageSchema = z.object({
   name: z
     .string()
