@@ -20,8 +20,16 @@
   body {
     @apply bg-background text-foreground font-body antialiased;
     background-image:
-      radial-gradient(circle at 15% 0%, rgba(62, 224, 137, 0.06), transparent 45%),
-      radial-gradient(circle at 85% 20%, rgba(62, 224, 137, 0.04), transparent 40%);
+      radial-gradient(
+        circle at 15% 0%,
+        rgba(62, 224, 137, 0.06),
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 85% 20%,
+        rgba(62, 224, 137, 0.04),
+        transparent 40%
+      );
     background-attachment: fixed;
   }
 
@@ -68,5 +76,66 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+/* React Toastify */
+.Toastify__toast {
+  width: 360px;
+  min-height: 64px;
+  background: #0a0a0a !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(62, 224, 137, 0.35);
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  font-size: 14px;
+}
+
+.Toastify__toast-body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+}
+
+.Toastify__progress-bar {
+  background: #3ee089 !important;
+}
+
+.Toastify__close-button {
+  color: #ffffff;
+  opacity: 0.6;
+}
+
+.Toastify__close-button:hover {
+  opacity: 1;
+}
+
+/* Toastify mobile responsive */
+@media (max-width: 640px) {
+  .Toastify__toast-container {
+    width: calc(100% - 32px) !important;
+    left: 16px !important;
+    right: 16px !important;
+    top: 16px !important;
+    padding: 0 !important;
+  }
+
+  .Toastify__toast {
+    width: 100% !important;
+    min-height: 58px;
+    margin-bottom: 10px;
+    padding: 10px 12px;
+    border-radius: 12px !important;
+    font-size: 13px;
+  }
+
+  .Toastify__toast-body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+  }
+
+  .Toastify__close-button {
+    margin-left: 8px;
   }
 }
