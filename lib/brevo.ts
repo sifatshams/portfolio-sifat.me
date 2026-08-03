@@ -7,8 +7,10 @@ export interface SendBrevoEmailParams {
   html: string;
   senderName?: string;
 }
+
 export const sendBrevoEmail = async ({
   to,
+  replyTo,
   subject,
   html,
   senderName = "Sifat Tech",
@@ -26,6 +28,11 @@ export const sendBrevoEmail = async ({
             email: to,
           },
         ],
+        ...(replyTo && {
+          replyTo: {
+            email: replyTo,
+          },
+        }),
         subject,
         htmlContent: html,
       },
@@ -39,7 +46,6 @@ export const sendBrevoEmail = async ({
     );
 
     console.log("Brevo email sent successfully:", response.data);
-
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
