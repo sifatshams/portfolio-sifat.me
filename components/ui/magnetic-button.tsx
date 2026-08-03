@@ -10,6 +10,7 @@ interface MagneticButtonProps {
   onClick?: () => void;
   as?: "button" | "div" | "a";
   type?: "button" | "submit";
+  disabled?: boolean;
   strength?: number;
   href?: string;
   download?: boolean;
@@ -23,6 +24,7 @@ export function MagneticButton({
   onClick,
   as = "button",
   type = "button",
+  disabled,
   strength = 0.35,
   href,
   download,
@@ -54,7 +56,12 @@ export function MagneticButton({
       data-cursor-hover
     >
       {as === "button" ? (
-        <button onClick={onClick} className={cn(className)} type={type}>
+        <button
+          onClick={onClick}
+          className={cn(className)}
+          type={type}
+          disabled={disabled}
+        >
           {children}
         </button>
       ) : as === "a" ? (
