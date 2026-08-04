@@ -35,9 +35,9 @@ export const HERO_TECH_ORBIT = ["React", "TS", "Next", "Node", "Mongo"];
 
 export const STATS: StatItem[] = [
   { value: "4+", label: "Years Learning", sublabel: "of deliberate practice" },
-  { value: "30+", label: "Projects Completed", sublabel: "shipped end to end" },
+  { value: "15+", label: "Projects Completed", sublabel: "shipped end to end" },
   { value: "18", label: "Technologies", sublabel: "across the stack" },
-  { value: "500+", label: "Problem Solving", sublabel: "algorithm challenges" },
+  { value: "200+", label: "Problem Solving", sublabel: "algorithm challenges" },
 ];
 
 export const ABOUT_PILLARS: AboutPillar[] = [
