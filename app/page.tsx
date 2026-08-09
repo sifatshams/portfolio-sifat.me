@@ -12,42 +12,42 @@ export default function Home() {
   return (
     <>
       <div className="relative">
-        <SectionSEO title="Sifat Bin Anwar — Full Stack Web Developer" />
+        <SectionSEO title="Sifat Bin Anwar — Full Stack Developer" />
         <Hero />
       </div>
 
       <div className="relative">
-        <SectionSEO title="About — Sifat Bin Anwar" />
+        <SectionSEO title="About Me — Background & Philosophy" />
         <About />
       </div>
 
       <div className="relative">
-        <SectionSEO title="Skills & Tech Stack — Sifat Bin Anwar" />
+        <SectionSEO title="Tech Stack — Core Skills & Expertise" />
         <Skills />
       </div>
 
       <div className="relative">
-        <SectionSEO title="Projects — Sifat Bin Anwar" />
+        <SectionSEO title="Featured Works — Selected Projects" />
         <Projects />
       </div>
 
       <div className="relative">
-        <SectionSEO title="Experience — Sifat Bin Anwar" />
+        <SectionSEO title="Career & Work Experience" />
         <Experience />
       </div>
 
       <div className="relative">
-        <SectionSEO title="Certificates — Sifat Bin Anwar" />
+        <SectionSEO title="Certifications & Accomplishments" />
         <Certificates />
       </div>
 
       <div className="relative">
-        <SectionSEO title="GitHub Activity — Sifat Bin Anwar" />
+        <SectionSEO title="Open Source & GitHub Analytics" />
         <GithubStats />
       </div>
 
       <div className="relative">
-        <SectionSEO title="Contact & Hire — Sifat Bin Anwar" />
+        <SectionSEO title="Get In Touch — Let's Build Together" />
         <Contact />
       </div>
     </>
