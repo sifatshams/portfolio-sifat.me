@@ -29,7 +29,7 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500", "600"],
 });
 
-const siteUrl = "https://sifatshams.dev";
+const siteUrl = "https://sifat-me.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -42,11 +42,14 @@ export const metadata: Metadata = {
   keywords: [
     "Sifat Bin Anwar",
     "Sifat",
+    "Sifat Shams",
     "Full Stack Developer",
     "MERN Stack Developer",
     "Next.js Developer",
     "React Developer",
-    "UI/UX Designer",
+    "Sifat Coder",
+    "Node.js Site",
+    "Web Developer",
     "Bangladesh Developer",
     "Web Developer Portfolio",
     "Software Engineer Bangladesh",
