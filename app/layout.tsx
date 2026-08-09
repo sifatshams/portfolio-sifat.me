@@ -41,14 +41,23 @@ export const metadata: Metadata = {
     "Sifat Bin Anwar is a full stack web developer from Bangladesh building scalable, modern and high-performance web applications with clean architecture and exceptional user experience.",
   keywords: [
     "Sifat Bin Anwar",
+    "Sifat",
     "Full Stack Developer",
     "MERN Stack Developer",
     "Next.js Developer",
+    "React Developer",
+    "UI/UX Designer",
     "Bangladesh Developer",
     "Web Developer Portfolio",
+    "Software Engineer Bangladesh",
   ],
   authors: [{ name: SITE.name, url: SITE.github }],
   creator: SITE.name,
+  publisher: SITE.name,
+  // Canonical URL
+  alternates: {
+    canonical: siteUrl,
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -57,7 +66,14 @@ export const metadata: Metadata = {
     description:
       "Full stack web developer building scalable, modern and high-performance web applications.",
     siteName: `${SITE.name} Portfolio`,
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: `${SITE.name} — Portfolio Preview`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -65,13 +81,27 @@ export const metadata: Metadata = {
     description:
       "Full stack web developer building scalable, modern and high-performance web applications.",
     images: ["/og-image.png"],
+    creator: "@sifatshams",
   },
   icons: {
     icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  // search console verification
+  verification: {
+    google: "YOUR_GOOGLE_VERIFICATION_CODE",
   },
 };
 
@@ -86,11 +116,37 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: SITE.name,
+    url: siteUrl,
+    jobTitle: SITE.role,
+    sameAs: [SITE.github],
+    knowsAbout: [
+      "Web Development",
+      "Full Stack Development",
+      "React",
+      "Next.js",
+      "Node.js",
+      "Tailwind CSS",
+      "JavaScript",
+      "TypeScript",
+    ],
+  };
+
   return (
     <html
       lang="en"
       className={`${sora.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
+      <head>
+        {/* schema injection */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body>
         <LoadingScreen />
         <ScrollProgress />
