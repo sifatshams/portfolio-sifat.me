@@ -102,10 +102,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  // search console verification
-  verification: {
-    google: "YOUR_GOOGLE_VERIFICATION_CODE",
-  },
+
 };
 
 export const viewport: Viewport = {
