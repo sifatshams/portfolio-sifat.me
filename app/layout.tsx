@@ -58,9 +58,7 @@ export const metadata: Metadata = {
   creator: SITE.name,
   publisher: SITE.name,
   // Canonical URL
-  alternates: {
-    canonical: siteUrl,
-  },
+  alternates: { canonical: siteUrl },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -102,7 +100,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-
 };
 
 export const viewport: Viewport = {
@@ -138,6 +135,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${sora.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
       <head>
@@ -147,14 +145,17 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>
+
+      <body suppressHydrationWarning>
         <LoadingScreen />
         <ScrollProgress />
         <CursorFollower />
         <Navbar />
+
         <Providers>
-          <main>{children}</main>
+          <main className="relative">{children}</main>
         </Providers>
+
         <Footer />
       </body>
     </html>
