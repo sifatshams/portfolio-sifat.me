@@ -12,22 +12,22 @@ export default function Home() {
   return (
     <>
       <div className="relative">
-        <SectionSEO title="Sifat Bin Anwar — Full Stack Developer" />
+        <SectionSEO title="Sifat Bin Anwar | Full Stack Developer" />
         <Hero />
       </div>
 
       <div className="relative">
-        <SectionSEO title="About Me — Background & Philosophy" />
+        <SectionSEO title="About Me | Background & Philosophy" />
         <About />
       </div>
 
       <div className="relative">
-        <SectionSEO title="Tech Stack — Core Skills & Expertise" />
+        <SectionSEO title="Tech Stack | Core Skills & Expertise" />
         <Skills />
       </div>
 
       <div className="relative">
-        <SectionSEO title="Featured Works — Selected Projects" />
+        <SectionSEO title="Featured Works | Selected Projects" />
         <Projects />
       </div>
 
