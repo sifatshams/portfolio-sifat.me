@@ -18,9 +18,7 @@ export function Navbar() {
   const [active, setActive] = useState<string>("");
 
   useEffect(() => {
-    if (activeSection) {
-      setActive(activeSection);
-    }
+    if (activeSection) setActive(activeSection);
   }, [activeSection]);
 
   useEffect(() => {
@@ -39,15 +37,37 @@ export function Navbar() {
 
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
-    const targetId = href.replace("#", "");
 
+    const targetId = href.replace("#", "");
     setActive(targetId);
 
     const el =
       document.getElementById(targetId) || document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const RESUME_URL = "/official-resume.pdf";
+  const RESUME_FILENAME = "Sifat-Bin-Anwar-Resume.pdf";
+
+  // Mobile/Tablet (<lg): open in new tab
+  // Desktop (>=lg): force download with filename
+  const handleResumeClick = () => {
+    if (typeof window === "undefined") return;
+
+    if (window.innerWidth < 1024) {
+      window.open(RESUME_URL, "_blank", "noopener,noreferrer");
+      setMobileOpen(false);
+      return;
     }
+
+    const link = document.createElement("a");
+    link.href = RESUME_URL;
+    link.download = RESUME_FILENAME;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    setMobileOpen(false);
   };
 
   return (
@@ -78,6 +98,7 @@ export function Navbar() {
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent/10 font-mono text-xs font-semibold text-accent ring-1 ring-accent/30">
               {SITE.initials}
             </span>
+
             <span className="font-display text-[15px] font-medium tracking-tight text-foreground">
               Sifat<span className="text-accent">.</span>
             </span>
@@ -87,6 +108,7 @@ export function Navbar() {
             {NAV_LINKS.map((link) => {
               const id = link.href.replace("#", "");
               const isActive = active === id;
+
               return (
                 <li key={link.href}>
                   <a
@@ -131,10 +153,11 @@ export function Navbar() {
             >
               GitHub <ArrowUpRight className="h-3.5 w-3.5" />
             </a>
+
             <MagneticButton
-              as="a"
-              href="/official-resume.pdf"
-              download
+              as="button"
+              type="button"
+              onClick={handleResumeClick}
               className="flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-[13px] font-semibold text-background transition-transform"
             >
               <FileDown className="h-3.5 w-3.5" /> Resume
@@ -186,6 +209,7 @@ export function Navbar() {
                 </li>
               ))}
             </ul>
+
             <div className="mt-3 flex gap-2 border-t border-white/10 pt-3">
               <a
                 href={SITE.github}
@@ -195,13 +219,14 @@ export function Navbar() {
               >
                 GitHub <ArrowUpRight className="h-3.5 w-3.5" />
               </a>
-              <a
-                href="/resume.pdf"
-                download
+
+              <button
+                type="button"
+                onClick={handleResumeClick}
                 className="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-accent py-2.5 text-sm font-semibold text-background"
               >
                 <FileDown className="h-3.5 w-3.5" /> Resume
-              </a>
+              </button>
             </div>
           </motion.div>
         )}
