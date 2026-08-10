@@ -80,26 +80,26 @@ export const SKILLS: SkillItem[] = [
 export const PROJECTS: Project[] = [
   {
     id: "taskflow",
-    category: "COLLABORATIVE PROJECT WORKSPACE",
+    category: "DEVELOPER PLATFORM SYSTEM",
     eyebrow: "Featured Work",
-    title: "TaskFlow",
+    title: "Portfolio CMS",
     description:
-      "Drag-ready kanban workspace with optimistic updates, presence indicators and granular activity history for distributed teams.",
-    stack: ["React", "Express", "MongoDB", "JWT", "Firebase"],
-    liveUrl: "#",
-    sourceUrl: SITE.github,
+      "Full-stack portfolio platform with admin controls, analytics, messaging, and authentication.",
+    stack: ["React", "Express", "MongoDB", "JWT", "JavaScript"],
+    liveUrl: "https://sifatcoder.vercel.app/",
+    sourceUrl: "https://github.com/sifatshams/sifats-personal-portfolio",
     accentImage: "kanban",
   },
   {
     id: "commerce-control",
-    category: "HEADLESS COMMERCE DASHBOARD",
+    category: "NEWS PLATFORM HUB",
     eyebrow: "Featured Work",
-    title: "Commerce Control",
+    title: "News Portal",
     description:
-      "Headless storefront control panel for catalog, pricing and fulfilment with real-time inventory sync and audit-safe editing.",
-    stack: ["Next.js", "TypeScript", "Node.js", "MongoDB"],
+      "A modern news platform built for seamless content publishing, management, and discovery.",
+    stack: ["React.js", "JavaScript", "Node.js", "MongoDB"],
     liveUrl: "#",
-    sourceUrl: SITE.github,
+    sourceUrl: "https://github.com/sifatshams/news-portal-app",
     accentImage: "commerce",
   },
   {
