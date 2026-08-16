@@ -2,7 +2,7 @@
 
 import { Reveal, RevealText } from "@/components/ui/reveal";
 import { CERTIFICATES, SERVICES } from "@/lib/data";
-import { Award, ArrowUpRight, BookOpen } from "lucide-react";
+import { ArrowUpRight, Award, BookOpen } from "lucide-react";
 
 export function Certificates() {
   return (
