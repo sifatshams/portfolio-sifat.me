@@ -68,12 +68,13 @@ export const SKILLS: SkillItem[] = [
   { code: "NO", index: "05", name: "Node.js", role: "Runtime" },
   { code: "EX", index: "06", name: "Express", role: "HTTP layer" },
   { code: "MO", index: "07", name: "MongoDB", role: "Documents" },
-  { code: "FI", index: "08", name: "Firebase", role: "Auth & realtime" },
-  { code: "TA", index: "09", name: "Tailwind", role: "Design systems" },
-  { code: "GI", index: "10", name: "Git", role: "Versioning" },
-  { code: "GI", index: "11", name: "GitHub", role: "Collaboration" },
-  { code: "RE", index: "12", name: "REST API", role: "Contracts" },
-  { code: "JW", index: "13", name: "JWT", role: "Sessions" },
+  { code: "PG", index: "08", name: "PostgreSQL", role: "Relational database" },
+  { code: "FI", index: "09", name: "Firebase", role: "Auth & realtime" },
+  { code: "TA", index: "10", name: "Tailwind", role: "Design systems" },
+  { code: "GI", index: "11", name: "Git", role: "Versioning" },
+  { code: "GI", index: "12", name: "GitHub", role: "Collaboration" },
+  { code: "RE", index: "13", name: "REST API", role: "Contracts" },
+  { code: "JW", index: "14", name: "JWT", role: "Sessions" },
 ];
 
 export const PROJECTS: Project[] = [
