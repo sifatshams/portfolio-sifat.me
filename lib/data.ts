@@ -118,23 +118,24 @@ export const PROJECTS: Project[] = [
 
 export const EXPERIENCE: ExperienceItem[] = [
   {
-    period: "2025 — Present",
-    role: "Freelance Full Stack Developer",
-    place: "Remote · Worldwide",
+    period: "2022 — Present",
+    role: "Full Stack Web Developer · Learning & Development",
+    place: "Self-Directed · Chattogram, Bangladesh",
     current: true,
     points: [
-      "Design and ship production web applications for founders and small product teams.",
-      "Own architecture decisions from database schema to deployment pipeline.",
-      "Reduced average page load by 48% across three client projects.",
+      "Continuously developing full-stack web development skills since 2022, with a strong focus on backend engineering and modern web application architecture.",
+      "Built hands-on projects using JavaScript, React, Node.js, Express.js, MongoDB, PostgreSQL, REST APIs, JWT authentication, and Next.js.",
+      "Developed strong practical skills in database design, API development, authentication, CRUD operations, deployment, and production-oriented application development.",
     ],
   },
   {
-    period: "2024 — 2025",
-    role: "Frontend Developer (Contract)",
-    place: "Startup Studio · Chattogram",
+    period: "Nov 2022 — Feb 2023",
+    role: "Data Entry & Web Research Specialist",
+    place: "Freelance · Self-Employed · Remote",
     points: [
-      "Built a reusable component library adopted across four internal products.",
-      "Introduced typed API clients, cutting integration bugs significantly.",
+      "Conducted online research and collected, verified, and organized business and contact data using Microsoft Excel.",
+      "Worked remotely on project-based tasks for international clients, maintaining accuracy, consistency, and well-structured data delivery.",
+      "Strengthened research, data management, attention-to-detail, and remote collaboration skills through client-focused projects.",
     ],
   },
 ];
