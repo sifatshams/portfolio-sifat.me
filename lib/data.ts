@@ -176,7 +176,7 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     index: "02",
-    title: "REST APIs",
+    title: "REST API's",
     description:
       "Documented, validated and versioned endpoints with auth, rate limiting and observability.",
   },
