@@ -34,7 +34,7 @@ export const NAV_LINKS: NavLink[] = [
 export const HERO_TECH_ORBIT = ["React", "TS", "Next", "Node", "Mongo"];
 
 export const STATS: StatItem[] = [
-  { value: "4+", label: "Years Learning", sublabel: "of deliberate practice" },
+  { value: "4+", label: "Years Learning", sublabel: "of continuous practice" },
   { value: "15+", label: "Projects Completed", sublabel: "shipped end to end" },
   { value: "18", label: "Technologies", sublabel: "across the stack" },
   { value: "200+", label: "Problem Solving", sublabel: "algorithm challenges" },
@@ -142,32 +142,28 @@ export const EXPERIENCE: ExperienceItem[] = [
 
 export const CERTIFICATES: Certificate[] = [
   {
-    title: "Complete Web Development",
-    issuer: "Programming Hero",
-    year: "2024",
-    code: "PH-WD-2024",
-    url: "#",
-  },
-  {
-    title: "JavaScript Algorithms & Data Structures",
-    issuer: "freeCodeCamp",
-    year: "2024",
-    code: "FCC-JS-DSA",
-    url: "#",
-  },
-  {
-    title: "Backend Development with Node.js",
-    issuer: "Meta / Coursera",
+    title: "Full Stack Web Development with MERN",
+    issuer: "Ostad",
     year: "2025",
-    code: "META-NODE-25",
+    code: "OSTAD-MERN-2025",
+    type: "Certificate",
     url: "#",
   },
   {
-    title: "Responsive Web Design",
-    issuer: "freeCodeCamp",
-    year: "2023",
-    code: "FCC-RWD-23",
-    url: "#",
+    title: "Web Development Learning",
+    issuer: "W3Schools",
+    year: "2022 — Present",
+    code: "SELF-LEARNING",
+    type: "Learning",
+    url: "https://www.w3schools.com/",
+  },
+  {
+    title: "JavaScript & Backend Development Learning",
+    issuer: "Learn With Sumit — Sumit Saha",
+    year: "2022 — Present",
+    code: "LWS-LEARNING",
+    type: "Learning",
+    url: "https://learnwithsumit.com/",
   },
 ];
 
