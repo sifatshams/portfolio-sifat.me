@@ -103,15 +103,15 @@ export const PROJECTS: Project[] = [
     accentImage: "commerce",
   },
   {
-    id: "zeruslex-api",
-    category: "DEVELOPER PLATFORM & DOCS",
+    id: "node-raw-api",
+    category: "VANILLA-NODE-REST-API",
     eyebrow: "Featured Work",
-    title: "Zeruslex API",
+    title: "Raw Node API",
     description:
-      "Public API product surface with interactive request playground, usage metering and versioned reference documentation.",
-    stack: ["Next.js", "REST API", "TypeScript", "Node.js"],
+      "A RESTful HTTP API built using pure Node.js standard modules without relying on any external frameworks like Express.",
+    stack: ["Node.js", "REST API", "No Framework", "JavaScript", "MongoDB"],
     liveUrl: "#",
-    sourceUrl: SITE.github,
+    sourceUrl: "https://github.com/sifatshams/raw-node-api-project",
     accentImage: "api",
   },
 ];
