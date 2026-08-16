@@ -41,6 +41,7 @@ export interface Certificate {
   issuer: string;
   year: string;
   code: string;
+  type: "Certificate" | "Learning";
   url: string;
 }
 
