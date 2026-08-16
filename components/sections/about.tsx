@@ -24,33 +24,46 @@ export function About() {
           <Reveal delay={0.1}>
             <div className="space-y-5 text-[15px] leading-relaxed text-muted">
               <p>
-                I started with a curiosity for how interfaces work and ended up
-                caring just as much about the systems behind them. Today I
-                design and build full stack products end to end — schema, API,
-                interface and the details in between.
+                I started my web development journey in 2022 with a genuine
+                curiosity about how websites and applications work. What began
+                with learning the fundamentals gradually evolved into a focused
+                path toward becoming a full stack web developer, with a
+                particular interest in backend development and application
+                architecture.
               </p>
+
               <p>
-                Four years ago I wrote my first line of JavaScript to fix a
-                broken layout on a friend&apos;s website. That single fix turned
-                into a habit: understand the problem, read the source, ship
-                something better than before.
+                Over the years, I have built a strong foundation in JavaScript
+                and modern web technologies, working extensively with React.js,
+                Next.js, Node.js, Express.js, MongoDB, PostgreSQL, REST APIs,
+                and JWT-based authentication. I learn by building,
+                experimenting, debugging, and continuously improving my
+                understanding of how each layer of an application works
+                together.
               </p>
+
               <p>
-                Since then I&apos;ve delivered dashboards, APIs, auth systems
-                and marketing sites for founders and small teams. I work in
-                TypeScript by default, keep architecture boring where it should
-                be, and reserve the creative energy for the parts users actually
-                feel — motion, hierarchy and response time.
+                My strongest area is backend development, where I enjoy
+                designing RESTful APIs, structuring databases, implementing
+                authentication and authorization, handling CRUD operations, and
+                building scalable server side logic. At the same time, I care
+                about creating clean, responsive and user-friendly interfaces
+                with modern frontend technologies.
               </p>
+
               <p>
-                I care about accessibility, Core Web Vitals and code that the
-                next developer can read without a meeting. If a decision
-                can&apos;t be explained in a sentence, it usually isn&apos;t the
-                right one.
+                Alongside self-directed learning, I completed a Full Stack Web
+                Development with MERN course through Ostad and have continued
+                learning through resources such as W3Schools and Learn With
+                Sumit. I have also strengthened my skills through hands-on
+                projects, problem solving, and consistent practice rather than
+                relying only on theoretical knowledge.
               </p>
+
               <p className="flex items-center gap-2 pt-2 font-mono text-xs uppercase tracking-wide text-accent">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                Currently exploring edge runtimes &amp; DX tooling
+                Currently focused on backend engineering &amp; full stack
+                development
               </p>
             </div>
           </Reveal>
