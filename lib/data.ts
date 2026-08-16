@@ -45,22 +45,21 @@ export const ABOUT_PILLARS: AboutPillar[] = [
     key: "mission",
     title: "Mission",
     description:
-      "Ship software that feels effortless — fast, accessible and maintainable long after launch day.",
+      "Build reliable and user-focused web applications while continuously strengthening my skills across the full stack, with a strong focus on backend engineering.",
   },
   {
     key: "vision",
     title: "Vision",
     description:
-      "Build products from Bangladesh that hold up next to the best engineering teams in the world.",
+      "Grow into a highly capable software engineer and build meaningful products that solve real problems with clean, scalable, and maintainable technology.",
   },
   {
     key: "mindset",
     title: "Mindset",
     description:
-      "Read the docs, measure before optimising, and treat every abstraction as a debt to justify.",
+      "Learn by building, understand the fundamentals, solve problems systematically, and keep improving through consistent practice, documentation, and real-world projects.",
   },
 ];
-
 export const SKILLS: SkillItem[] = [
   { code: "RE", index: "01", name: "React", role: "UI architecture" },
   { code: "NE", index: "02", name: "Next.js", role: "SSR & routing" },
