@@ -60,15 +60,25 @@ export function Projects() {
                     ))}
                   </div>
                   <div className="mt-2 flex items-center gap-3">
-                    <MagneticButton
-                      as="a"
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-background"
-                    >
-                      Live Demo <ArrowUpRight className="h-4 w-4" />
-                    </MagneticButton>
+                    {project.liveUrl !== "#" ? (
+                      <MagneticButton
+                        as="a"
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-background"
+                      >
+                        Live Demo <ArrowUpRight className="h-4 w-4" />
+                      </MagneticButton>
+                    ) : (
+                      <button
+                        type="button"
+                        disabled
+                        className="flex cursor-not-allowed items-center gap-1.5 rounded-full bg-accent/30 px-5 py-2.5 text-sm font-semibold text-muted opacity-60"
+                      >
+                        Live Demo <ArrowUpRight className="h-4 w-4" />
+                      </button>
+                    )}
                     <a
                       href={project.sourceUrl}
                       target="_blank"
