@@ -1,3 +1,4 @@
+// types and interfaces
 export interface NavLink {
   label: string;
   href: string;
