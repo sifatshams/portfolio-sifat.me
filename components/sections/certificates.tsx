@@ -7,7 +7,7 @@ import { ArrowUpRight, Award, BookOpen } from "lucide-react";
 export function Certificates() {
   return (
     <>
-      {/* CERTIFICATES & LEARNING SECTION */}
+      {/* CERTIFICATES & LEARNING SECTIONs */}
       <section id="certificates" className="relative pt-28 sm:pt-36">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
