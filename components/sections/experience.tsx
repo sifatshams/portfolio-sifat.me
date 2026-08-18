@@ -24,15 +24,26 @@ export function Experience() {
         </Reveal>
 
         <div className="relative mt-16 space-y-8">
-          <div
-            className="absolute left-[9px] top-3 hidden h-[calc(100%-1.5rem)] w-px bg-white/10 sm:block"
-            aria-hidden="true"
-          />
           {EXPERIENCE.map((item, i) => (
             <Reveal key={item.role} delay={i * 0.1}>
-              <div className="relative pl-0 sm:pl-10">
+              <div className="group relative pl-0 sm:pl-10">
+                {/* base gray line last item */}
+                {i !== EXPERIENCE.length - 1 && (
+                  <span
+                    className="absolute left-[9px] top-3 hidden w-px bg-white/10 sm:block"
+                    style={{ height: "calc(100% + 2rem)" }}
+                    aria-hidden="true"
+                  />
+                )}
+
+                {/* hover green overlay line */}
+                {i !== EXPERIENCE.length - 1 && (
+                  <span className="absolute left-[9px] top-3 hidden w-px bg-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:block" style={{ height: "calc(100% + 2rem)" }} aria-hidden="true"/>
+                )}
+
+                {/* circle */}
                 <span
-                  className={`absolute left-0 top-3 hidden h-[18px] w-[18px] items-center justify-center rounded-full sm:flex ${
+                  className={`absolute left-0 top-3 hidden h-[18px] w-[18px] items-center justify-center rounded-full sm:flex transition-all duration-300 ${
                     item.current
                       ? "bg-accent/15 ring-2 ring-accent"
                       : "bg-white/5 ring-2 ring-white/20"
@@ -40,8 +51,8 @@ export function Experience() {
                   aria-hidden="true"
                 >
                   <span
-                    className={`h-2 w-2 rounded-full ${
-                      item.current ? "bg-accent" : "bg-white/40"
+                    className={`h-2 w-2 rounded-full transition-colors duration-300 ${
+                      item.current ? "bg-accent" : "bg-white/40 group-hover:bg-accent"
                     }`}
                   />
                 </span>
