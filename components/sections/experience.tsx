@@ -38,7 +38,11 @@ export function Experience() {
 
                 {/* hover green overlay line */}
                 {i !== EXPERIENCE.length - 1 && (
-                  <span className="absolute left-[9px] top-3 hidden w-px bg-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:block" style={{ height: "calc(100% + 2rem)" }} aria-hidden="true"/>
+                  <span
+                    className="absolute left-[9px] top-3 hidden w-px bg-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:block"
+                    style={{ height: "calc(100% + 2rem)" }}
+                    aria-hidden="true"
+                  />
                 )}
 
                 {/* circle */}
@@ -52,7 +56,9 @@ export function Experience() {
                 >
                   <span
                     className={`h-2 w-2 rounded-full transition-colors duration-300 ${
-                      item.current ? "bg-accent" : "bg-white/40 group-hover:bg-accent"
+                      item.current
+                        ? "bg-accent"
+                        : "bg-white/40 group-hover:bg-accent"
                     }`}
                   />
                 </span>
