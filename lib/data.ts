@@ -79,6 +79,25 @@ export const SKILLS: SkillItem[] = [
 
 export const PROJECTS: Project[] = [
   {
+    id: "task-management-app",
+    category: "FULL-STACK-TASK-MANAGER",
+    eyebrow: "Featured Work",
+    title: "Task Management App",
+    description:
+      "A full-stack task management application that lets users create, organize, and track tasks with real-time updates, built with a RESTful API and a modern, responsive interface.",
+    stack: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "REST API",
+      "JWT Auth",
+    ],
+    liveUrl: "#",
+    sourceUrl: "https://github.com/sifatshams/task-management-app",
+    accentImage: "api",
+  },
+  {
     id: "taskflow",
     category: "DEVELOPER PLATFORM SYSTEM",
     eyebrow: "Featured Work",
@@ -101,18 +120,6 @@ export const PROJECTS: Project[] = [
     liveUrl: "#",
     sourceUrl: "https://github.com/sifatshams/news-portal-app",
     accentImage: "commerce",
-  },
-  {
-    id: "node-raw-api",
-    category: "VANILLA-NODE-REST-API",
-    eyebrow: "Featured Work",
-    title: "Raw Node API",
-    description:
-      "A RESTful HTTP API built using pure Node.js standard modules without relying on any external frameworks like Express.",
-    stack: ["Node.js", "REST API", "No Framework", "JavaScript", "MongoDB"],
-    liveUrl: "#",
-    sourceUrl: "https://github.com/sifatshams/raw-node-api-project",
-    accentImage: "api",
   },
 ];
 
