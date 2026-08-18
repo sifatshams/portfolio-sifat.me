@@ -79,6 +79,30 @@ export const SKILLS: SkillItem[] = [
 
 export const PROJECTS: Project[] = [
   {
+    id: "commerce-control",
+    category: "NEWS PLATFORM HUB",
+    eyebrow: "Featured Work",
+    title: "News Portal",
+    description:
+      "A modern news platform built for seamless content publishing, management, and discovery.",
+    stack: ["React.js", "JavaScript", "Node.js", "MongoDB"],
+    liveUrl: "https://news-portal-sifat.vercel.app",
+    sourceUrl: "https://github.com/sifatshams/news-portal-app",
+    accentImage: "commerce",
+  },
+  {
+    id: "taskflow",
+    category: "DEVELOPER PLATFORM SYSTEM",
+    eyebrow: "Featured Work",
+    title: "Portfolio CMS",
+    description:
+      "Full-stack portfolio platform with admin controls, analytics, messaging, and authentication.",
+    stack: ["React", "Express", "MongoDB", "JWT", "JavaScript"],
+    liveUrl: "https://sifatcoder.vercel.app/",
+    sourceUrl: "https://github.com/sifatshams/sifats-personal-portfolio",
+    accentImage: "kanban",
+  },
+  {
     id: "task-management-app",
     category: "FULL-STACK-TASK-MANAGER",
     eyebrow: "Featured Work",
@@ -96,30 +120,6 @@ export const PROJECTS: Project[] = [
     liveUrl: "#",
     sourceUrl: "https://github.com/sifatshams/task-management-app",
     accentImage: "api",
-  },
-  {
-    id: "taskflow",
-    category: "DEVELOPER PLATFORM SYSTEM",
-    eyebrow: "Featured Work",
-    title: "Portfolio CMS",
-    description:
-      "Full-stack portfolio platform with admin controls, analytics, messaging, and authentication.",
-    stack: ["React", "Express", "MongoDB", "JWT", "JavaScript"],
-    liveUrl: "https://sifatcoder.vercel.app/",
-    sourceUrl: "https://github.com/sifatshams/sifats-personal-portfolio",
-    accentImage: "kanban",
-  },
-  {
-    id: "commerce-control",
-    category: "NEWS PLATFORM HUB",
-    eyebrow: "Featured Work",
-    title: "News Portal",
-    description:
-      "A modern news platform built for seamless content publishing, management, and discovery.",
-    stack: ["React.js", "JavaScript", "Node.js", "MongoDB"],
-    liveUrl: "#",
-    sourceUrl: "https://github.com/sifatshams/news-portal-app",
-    accentImage: "commerce",
   },
 ];
 
