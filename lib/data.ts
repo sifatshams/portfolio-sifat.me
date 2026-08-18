@@ -118,24 +118,24 @@ export const PROJECTS: Project[] = [
 
 export const EXPERIENCE: ExperienceItem[] = [
   {
-    period: "2022 — Present",
-    role: "Full Stack Web Developer · Learning & Development",
-    place: "Self-Directed · Chattogram, Bangladesh",
-    current: true,
-    points: [
-      "Continuously developing full-stack web development skills since 2022, with a strong focus on backend engineering and modern web application architecture.",
-      "Built hands-on projects using JavaScript, React, Node.js, Express.js, MongoDB, PostgreSQL, REST APIs, JWT authentication, and Next.js.",
-      "Developed strong practical skills in database design, API development, authentication, CRUD operations, deployment, and production-oriented application development.",
-    ],
-  },
-  {
     period: "Nov 2022 — Feb 2023",
     role: "Data Entry & Web Research Specialist",
     place: "Freelance · Self-Employed · Remote",
+    current: true,
     points: [
-      "Conducted online research and collected, verified, and organized business and contact data using Microsoft Excel.",
-      "Worked remotely on project-based tasks for international clients, maintaining accuracy, consistency, and well-structured data delivery.",
-      "Strengthened research, data management, attention-to-detail, and remote collaboration skills through client-focused projects.",
+      "Conducted in-depth online research to collect, verify, and organize business and contact data using Microsoft Excel, maintaining a high standard of accuracy throughout.",
+      "Delivered project-based work remotely for international clients, consistently meeting deadlines while ensuring accurate, well-structured, and delivery-ready datasets.",
+      "Strengthened core skills in data management, attention to detail, and remote client collaboration through hands-on, client-facing freelance projects.",
+    ],
+  },
+  {
+    period: "Oct 2021 — Apr 2022",
+    role: "Computer Hardware Assistant",
+    place: "Raj Computers · Part-time · Chattogram, Bangladesh",
+    points: [
+      "Assisted with computer assembly, hardware installation, and system upgrades, gaining hands-on experience in hardware maintenance and troubleshooting.",
+      "Supported day-to-day system setup and configuration tasks, building a practical, real-world understanding of computer components and their functions.",
+      "Developed foundational hardware problem-solving skills by diagnosing and resolving common technical issues during live customer service work.",
     ],
   },
 ];
