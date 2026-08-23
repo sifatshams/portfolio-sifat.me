@@ -46,7 +46,7 @@ export function Navbar() {
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const RESUME_URL = "/sifat-official-resume.pdf";
+  const RESUME_URL = "/official-resumeof-sifat.pdf";
   const RESUME_FILENAME = "Sifat-Bin-Anwar-Resume.pdf";
 
   // Mobile/Tablet (<lg): open in new tab
