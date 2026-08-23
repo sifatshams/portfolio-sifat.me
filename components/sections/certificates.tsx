@@ -31,45 +31,45 @@ export function Certificates() {
 
           <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {CERTIFICATES.map((cert, i) => {
-              const isCertificate = cert.type === "Certificate";
+              const isCertificate =
+                cert.type === "Certificate" || cert.type === "Assessment";
+
               const hasUrl = cert.url && cert.url !== "#";
 
               return (
                 <Reveal key={cert.code} delay={i * 0.08}>
                   <div className="group flex h-full flex-col justify-between rounded-2xl border border-white/10 bg-card p-7 transition-colors hover:border-accent/25">
+                    {/* Top */}
+                    <div className="mb-8 flex items-start justify-between">
+                      <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 text-accent">
+                        {isCertificate ? (
+                          <Award className="h-5 w-5" />
+                        ) : (
+                          <BookOpen className="h-5 w-5" />
+                        )}
+                      </span>
+
+                      <span
+                        className={`rounded-full border px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider ${
+                          isCertificate
+                            ? "border-accent/20 bg-accent/5 text-accent"
+                            : "border-white/10 bg-white/5 text-muted"
+                        }`}
+                      >
+                        {cert.type}
+                      </span>
+                    </div>
+
+                    {/* Content */}
                     <div>
-                      {/* Top */}
-                      <div className="mb-8 flex items-start justify-between">
-                        <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 text-accent">
-                          {isCertificate ? (
-                            <Award className="h-5 w-5" />
-                          ) : (
-                            <BookOpen className="h-5 w-5" />
-                          )}
-                        </span>
+                      <h3 className="font-display text-xl font-medium text-foreground">
+                        {cert.title}
+                      </h3>
 
-                        <span
-                          className={`rounded-full border px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider ${
-                            isCertificate
-                              ? "border-accent/20 bg-accent/5 text-accent"
-                              : "border-white/10 bg-white/5 text-muted"
-                          }`}
-                        >
-                          {cert.type}
-                        </span>
-                      </div>
+                      <p className="mt-1 text-sm text-muted">{cert.issuer}</p>
 
-                      {/* Content */}
-                      <div>
-                        <h3 className="font-display text-xl font-medium text-foreground">
-                          {cert.title}
-                        </h3>
-
-                        <p className="mt-1 text-sm text-muted">{cert.issuer}</p>
-
-                        <div className="mt-3 font-mono text-xs text-muted/70">
-                          {cert.year}
-                        </div>
+                      <div className="mt-3 font-mono text-xs text-muted/70">
+                        {cert.year}
                       </div>
                     </div>
 
