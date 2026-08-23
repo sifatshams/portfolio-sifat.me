@@ -37,14 +37,14 @@ export interface ExperienceItem {
   current?: boolean;
 }
 
-type Certificate = {
+export interface Certificate {
   title: string;
   issuer: string;
   year: string;
   code: string;
   type: "Certificate" | "Assessment" | "Learning";
   url: string;
-};
+}
 
 export interface ServiceItem {
   index: string;
