@@ -154,7 +154,15 @@ export const CERTIFICATES: Certificate[] = [
     year: "2025",
     code: "OSTAD-MERN-2025",
     type: "Certificate",
-    url: "#",
+    url: "/certificates/ostad-mern-certificate.pdf",
+  },
+  {
+    title: "MERN Assessment Certificate",
+    issuer: "Ostad",
+    year: "2025",
+    code: "OSTAD-MERN-ASSESSMENT-2025",
+    type: "Assessment",
+    url: "/certificates/ostad-mern-assessment-certificate.pdf",
   },
   {
     title: "Web Development Learning",
