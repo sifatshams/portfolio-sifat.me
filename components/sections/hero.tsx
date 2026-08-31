@@ -7,6 +7,7 @@ import { SITE } from "@/lib/data";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowUpRight,
+  GitBranch,
   Github,
   Linkedin,
   Mail,
@@ -14,8 +15,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import dynamic from "next/dynamic";
-import Image from "next/image";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const ParticleField = dynamic(
   () =>
@@ -24,15 +24,6 @@ const ParticleField = dynamic(
     ssr: false,
   }
 );
-
-// Tech badges placed smoothly around the geometric frame
-const SKILL_BADGES = [
-  { label: "Express", className: "-top-3 left-6" },
-  { label: "Next.js", className: "top-1/4 -right-5" },
-  { label: "TypeScript", className: "top-2/3 -left-6" },
-  { label: "Node.js", className: "bottom-12 -right-4" },
-  { label: "MongoDB", className: "-bottom-3 left-1/3" },
-];
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -105,7 +96,10 @@ export function Hero() {
 
           <Reveal delay={0.4}>
             <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-muted">
-              I specialize in building scalable backend systems and high-performance APIs, while delivering complete full-stack applications with modern frontend experiences, clean architecture robust security and efficient data management.
+              I specialize in building scalable backend systems and
+              high-performance APIs, while delivering complete full-stack
+              applications with modern frontend experiences, clean architecture
+              robust security and efficient data management.
             </p>
           </Reveal>
 
@@ -166,17 +160,28 @@ export function Hero() {
           </Reveal>
         </motion.div>
 
-        {/* Tech Cyberpunk/Hex Glass Frame Concept */}
+        {/* Animated Mac Code Window */}
         <motion.div
           style={{ y: imageY }}
-          className="relative mx-auto w-full max-w-[360px] sm:max-w-[390px]"
+          className="relative mx-auto w-full max-w-[560px]"
         >
-          {/* Neon Backdrop Glow */}
-          <div className="absolute -inset-3 rounded-[35px] bg-gradient-to-tr from-accent/30 via-emerald-500/15 to-teal-300/10 blur-2xl opacity-75" />
-
-          {/* Floating Frame Base */}
+          {/* Slow rotating ambient glow ring */}
           <motion.div
-            animate={{ y: [0, -10, 0] }}
+            aria-hidden
+            animate={{ rotate: 360 }}
+            transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+            className="absolute -inset-10 -z-10 rounded-full opacity-40 blur-[70px]"
+            style={{
+              background:
+                "conic-gradient(from 0deg, rgba(62,224,137,0.5), rgba(45,212,191,0.12), transparent, rgba(62,224,137,0.5))",
+            }}
+          />
+
+          {/* Base glow */}
+          <div className="absolute -inset-8 -z-10 rounded-full bg-accent/15 blur-[90px]" />
+
+          <motion.div
+            animate={{ y: [0, -8, 0] }}
             transition={{
               duration: 5,
               repeat: Infinity,
@@ -184,59 +189,159 @@ export function Hero() {
             }}
             className="relative"
           >
-            {/* Outer Tech Border Frame with Notched Corners */}
-            <div className="relative rounded-[28px] border-2 border-accent/30 bg-background/40 p-3.5 backdrop-blur-2xl shadow-[0_0_40px_rgba(62,224,137,0.12)] transition-all duration-500 hover:border-accent/60">
-              {/* Corner Accents (Subtle UI brackets) */}
-              <div className="absolute -top-1 -left-1 h-4 w-4 border-t-2 border-l-2 border-accent" />
-              <div className="absolute -top-1 -right-1 h-4 w-4 border-t-2 border-r-2 border-accent" />
-              <div className="absolute -bottom-1 -left-1 h-4 w-4 border-b-2 border-l-2 border-accent" />
-              <div className="absolute -bottom-1 -right-1 h-4 w-4 border-b-2 border-r-2 border-accent" />
+            {/* Glass highlight along the top edge */}
+            <div className="pointer-events-none absolute -top-px left-6 right-24 z-10 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
 
-              {/* Inner Image Container */}
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[20px] bg-card ring-1 ring-white/10">
-                <Image
-                  src="/profile.png"
-                  alt="Sifat Bin Anwar — Full Stack Web Developer"
-                  fill
-                  priority
-                  sizes="(max-width: 768px) 80vw, 390px"
-                  className="object-cover object-top filter contrast-[1.03] transition-transform duration-700 hover:scale-105"
-                />
+            {/* Mac Window */}
+            <div className="relative overflow-hidden rounded-2xl border border-accent/20 bg-[#07100d]/95 shadow-[0_0_60px_rgba(62,224,137,0.14)] backdrop-blur-xl">
+              {/* Faint texture so the panel doesn't read flat */}
+              <div className="pointer-events-none absolute inset-0 bg-grid-glow opacity-[0.12]" />
 
-                {/* Subtle Gradient Shade on Image */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-black/20" />
-
-                {/* Status Bar */}
-                <div className="absolute top-3 left-3 flex items-center gap-1.5 rounded-full border border-white/10 bg-black/60 px-3 py-1 text-[11px] font-mono text-accent backdrop-blur-md">
-                  <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-                  ONLINE
+              {/* Mac Header with tabs */}
+              <div className="relative flex h-12 items-center gap-4 border-b border-white/10 bg-white/[0.03] px-5">
+                <div className="flex items-center gap-2">
+                  <span className="h-3 w-3 rounded-full bg-gradient-to-br from-red-400 to-red-600 shadow-[inset_0_1px_1px_rgba(255,255,255,0.5)]" />
+                  <span className="h-3 w-3 rounded-full bg-gradient-to-br from-yellow-300 to-yellow-500 shadow-[inset_0_1px_1px_rgba(255,255,255,0.5)]" />
+                  <span className="h-3 w-3 rounded-full bg-gradient-to-br from-green-400 to-green-600 shadow-[inset_0_1px_1px_rgba(255,255,255,0.5)]" />
                 </div>
+
+                <div className="ml-2 flex items-center gap-1 font-mono text-xs">
+                  <span className="hidden items-center rounded-t-md px-2.5 py-1 text-white/25 sm:flex">
+                    about.ts
+                  </span>
+                  <span className="flex items-center gap-1.5 rounded-t-md border-b-2 border-accent bg-white/[0.04] px-2.5 py-1 text-foreground">
+                    <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                    developer.ts
+                  </span>
+                </div>
+
+                <div className="ml-auto flex items-center gap-2 font-mono text-[10px] text-accent">
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
+                  LIVE
+                </div>
+              </div>
+
+              {/* Code Area */}
+              <div className="relative min-h-[330px] p-6 sm:p-8">
+                <div className="flex gap-5 font-mono text-sm leading-7 sm:text-[15px]">
+                  <div className="select-none text-white/20">
+                    {Array.from({ length: 7 }, (_, i) => (
+                      <div key={i}>{String(i + 1).padStart(2, "0")}</div>
+                    ))}
+                  </div>
+
+                  <div className="min-w-0 flex-1 whitespace-pre-wrap break-words">
+                    <CodeTyping />
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Status Bar */}
+              <div className="relative flex items-center justify-between border-t border-white/10 bg-white/[0.03] px-5 py-2.5 font-mono text-[10px] text-muted">
+                <span className="flex items-center gap-1.5">
+                  <GitBranch className="h-3 w-3" />
+                  main
+                </span>
+                <span className="text-accent">Sifat Bin Anwar</span>
+                <span>TypeScript</span>
               </div>
             </div>
 
-            {/* Floating Tech Badges around Frame */}
-            {SKILL_BADGES.map((badge, i) => (
-              <motion.div
-                key={badge.label}
-                className={`absolute z-20 flex items-center gap-2 rounded-xl border border-white/15 bg-background/90 px-3.5 py-1.5 shadow-2xl backdrop-blur-md ${badge.className}`}
-                animate={{ y: [0, -7, 0] }}
-                transition={{
-                  duration: 3.5 + i * 0.4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: i * 0.2,
-                }}
-              >
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                <span className="font-mono text-xs font-semibold tracking-wide text-foreground">
-                  {badge.label}
-                </span>
-              </motion.div>
-            ))}
+            {/* Soft mirrored reflection under the window */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute left-0 right-0 top-full mt-2 h-24 overflow-hidden rounded-2xl opacity-20 [mask-image:linear-gradient(to_bottom,black,transparent)]"
+            >
+              <div className="scale-y-[-1] rounded-2xl border border-accent/20 bg-[#07100d]">
+                <div className="h-12 border-b border-white/10 bg-white/[0.03]" />
+              </div>
+            </div>
           </motion.div>
         </motion.div>
       </div>
     </section>
+  );
+}
+
+function CodeTyping() {
+  const code = `const developer = {
+  name: "Sifat Bin Anwar",
+  role: "Full-Stack Developer",
+  stack: ["React", "Next.js", "Node.js"],
+  database: ["MongoDB", "PostgreSQL"],
+  loves: "clean code & great UX"
+};`;
+
+  const [text, setText] = useState("");
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (!deleting && text.length < code.length) {
+      timeout = setTimeout(() => {
+        setText(code.slice(0, text.length + 1));
+      }, 32);
+    } else if (!deleting && text.length === code.length) {
+      timeout = setTimeout(() => setDeleting(true), 2800);
+    } else if (deleting && text.length > 0) {
+      timeout = setTimeout(() => {
+        setText(code.slice(0, text.length - 1));
+      }, 14);
+    } else {
+      timeout = setTimeout(() => setDeleting(false), 500);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [text, deleting, code]);
+
+  return (
+    <>
+      <SyntaxHighlightedCode text={text} />
+      <span className="ml-1 animate-pulse text-accent">▋</span>
+    </>
+  );
+}
+
+function SyntaxHighlightedCode({ text }: { text: string }) {
+  const parts = text.split(
+    /(\"[^\"]*\"|\b(?:const|return)\b|\b(?:name|role|stack|database|loves)\b)/g
+  );
+
+  return (
+    <>
+      {parts.map((part, index) => {
+        if (/^\"[^\"]*\"$/.test(part)) {
+          return (
+            <span key={index} className="text-emerald-300">
+              {part}
+            </span>
+          );
+        }
+
+        if (/^(const|return)$/.test(part)) {
+          return (
+            <span key={index} className="text-purple-300">
+              {part}
+            </span>
+          );
+        }
+
+        if (/^(name|role|stack|database|loves)$/.test(part)) {
+          return (
+            <span key={index} className="text-cyan-300">
+              {part}
+            </span>
+          );
+        }
+
+        return (
+          <span key={index} className="text-foreground/80">
+            {part}
+          </span>
+        );
+      })}
+    </>
   );
 }
 
