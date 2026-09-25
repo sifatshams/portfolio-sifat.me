@@ -79,6 +79,25 @@ export const SKILLS: SkillItem[] = [
 
 export const PROJECTS: Project[] = [
   {
+    id: "task-management-app",
+    category: "FULL-STACK-TASK-MANAGER",
+    eyebrow: "Featured Work",
+    title: "Task Management App",
+    description:
+      "A full-stack task management application that lets users create, organize, and track tasks with real-time updates, built with a RESTful API and a modern, responsive interface.",
+    stack: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "REST API",
+      "JWT Auth",
+    ],
+    liveUrl: "https://taskboardio.vercel.app/",
+    sourceUrl: "https://github.com/sifatshams/task-management-app",
+    accentImage: "api",
+  },
+  {
     id: "commerce-control",
     category: "NEWS PLATFORM HUB",
     eyebrow: "Featured Work",
@@ -101,25 +120,6 @@ export const PROJECTS: Project[] = [
     liveUrl: "https://sifatcoder.vercel.app/",
     sourceUrl: "https://github.com/sifatshams/sifats-personal-portfolio",
     accentImage: "kanban",
-  },
-  {
-    id: "task-management-app",
-    category: "FULL-STACK-TASK-MANAGER",
-    eyebrow: "Featured Work",
-    title: "Task Management App",
-    description:
-      "A full-stack task management application that lets users create, organize, and track tasks with real-time updates, built with a RESTful API and a modern, responsive interface.",
-    stack: [
-      "React",
-      "Node.js",
-      "Express.js",
-      "MongoDB",
-      "REST API",
-      "JWT Auth",
-    ],
-    liveUrl: "#",
-    sourceUrl: "https://github.com/sifatshams/task-management-app",
-    accentImage: "api",
   },
 ];
 
