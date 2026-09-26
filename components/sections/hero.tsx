@@ -7,7 +7,6 @@ import { SITE } from "@/lib/data";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowUpRight,
-  GitBranch,
   Github,
   Linkedin,
   Mail,
@@ -15,7 +14,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import dynamic from "next/dynamic";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 const ParticleField = dynamic(
   () =>
@@ -33,7 +32,7 @@ export function Hero() {
     offset: ["start start", "end start"],
   });
 
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, 80]);
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, 55]);
   const textY = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
@@ -43,11 +42,14 @@ export function Hero() {
       ref={ref}
       className="relative flex min-h-screen items-center overflow-hidden pt-28 pb-16"
     >
+      {/* grid */}
       <div className="pointer-events-none absolute inset-0 bg-grid-glow" />
 
+      {/* particles */}
       <ParticleField count={30} />
 
       <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-[1.1fr_0.9fr]">
+        {/* content */}
         <motion.div style={{ y: textY, opacity }}>
           <Reveal>
             <div className="mb-4 flex flex-wrap items-center gap-3">
@@ -74,6 +76,7 @@ export function Hero() {
 
               <h1 className="font-display text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl leading-tight">
                 <span className="text-foreground">Sifat Bin </span>
+
                 <span className="bg-gradient-to-r from-accent via-emerald-400 to-teal-200 bg-clip-text text-transparent">
                   Anwar
                 </span>
@@ -110,7 +113,8 @@ export function Hero() {
                 href="#projects"
                 className="flex items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-background shadow-glow transition-transform"
               >
-                View Projects <ArrowUpRight className="h-4 w-4" />
+                View Projects
+                <ArrowUpRight className="h-4 w-4" />
               </MagneticButton>
 
               <MagneticButton
@@ -160,188 +164,57 @@ export function Hero() {
           </Reveal>
         </motion.div>
 
-        {/* Animated Mac Code Window */}
+        {/* hero image */}
         <motion.div
           style={{ y: imageY }}
-          className="relative mx-auto w-full max-w-[560px]"
+          className="relative mx-auto flex w-full max-w-[560px] items-center justify-center"
         >
-          {/* Slow rotating ambient glow ring */}
-          <motion.div
+          {/* dark ambient glow */}
+          <div
             aria-hidden
-            animate={{ rotate: 360 }}
-            transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-            className="absolute -inset-10 -z-10 rounded-full opacity-40 blur-[70px]"
-            style={{
-              background:
-                "conic-gradient(from 0deg, rgba(62,224,137,0.5), rgba(45,212,191,0.12), transparent, rgba(62,224,137,0.5))",
-            }}
+            className="absolute left-1/2 top-1/2 -z-10 h-[75%] w-[75%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-950/70 blur-[110px]"
           />
 
-          {/* Base glow */}
-          <div className="absolute -inset-8 -z-10 rounded-full bg-accent/15 blur-[90px]" />
+          {/* soft green glow */}
+          <div
+            aria-hidden
+            className="absolute left-1/2 top-[55%] -z-10 h-[55%] w-[65%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-900/45 blur-[90px]"
+          />
 
+          {/* subtle center light */}
+          <div
+            aria-hidden
+            className="absolute left-1/2 top-[48%] -z-10 h-[35%] w-[40%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-800/25 blur-[70px]"
+          />
+
+          {/* floating image */}
           <motion.div
-            animate={{ y: [0, -8, 0] }}
+            animate={{
+              y: [0, -9, 0, 7, 0],
+            }}
             transition={{
-              duration: 5,
+              duration: 6.5,
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="relative"
+            className="relative w-full"
           >
-            {/* Glass highlight along the top edge */}
-            <div className="pointer-events-none absolute -top-px left-6 right-24 z-10 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
-
-            {/* Mac Window */}
-            <div className="relative overflow-hidden rounded-2xl border border-accent/20 bg-[#07100d]/95 shadow-[0_0_60px_rgba(62,224,137,0.14)] backdrop-blur-xl">
-              {/* Faint texture so the panel doesn't read flat */}
-              <div className="pointer-events-none absolute inset-0 bg-grid-glow opacity-[0.12]" />
-
-              {/* Mac Header with tabs */}
-              <div className="relative flex h-12 items-center gap-4 border-b border-white/10 bg-white/[0.03] px-5">
-                <div className="flex items-center gap-2">
-                  <span className="h-3 w-3 rounded-full bg-gradient-to-br from-red-400 to-red-600 shadow-[inset_0_1px_1px_rgba(255,255,255,0.5)]" />
-                  <span className="h-3 w-3 rounded-full bg-gradient-to-br from-yellow-300 to-yellow-500 shadow-[inset_0_1px_1px_rgba(255,255,255,0.5)]" />
-                  <span className="h-3 w-3 rounded-full bg-gradient-to-br from-green-400 to-green-600 shadow-[inset_0_1px_1px_rgba(255,255,255,0.5)]" />
-                </div>
-
-                <div className="ml-2 flex items-center gap-1 font-mono text-xs">
-                  <span className="hidden items-center rounded-t-md px-2.5 py-1 text-white/25 sm:flex">
-                    about.ts
-                  </span>
-                  <span className="flex items-center gap-1.5 rounded-t-md border-b-2 border-accent bg-white/[0.04] px-2.5 py-1 text-foreground">
-                    <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                    developer.ts
-                  </span>
-                </div>
-
-                <div className="ml-auto flex items-center gap-2 font-mono text-[10px] text-accent">
-                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
-                  LIVE
-                </div>
-              </div>
-
-              {/* Code Area */}
-              <div className="relative min-h-[330px] p-6 sm:p-8">
-                <div className="flex gap-5 font-mono text-sm leading-7 sm:text-[15px]">
-                  <div className="select-none text-white/20">
-                    {Array.from({ length: 7 }, (_, i) => (
-                      <div key={i}>{String(i + 1).padStart(2, "0")}</div>
-                    ))}
-                  </div>
-
-                  <div className="min-w-0 flex-1 whitespace-pre-wrap break-words">
-                    <CodeTyping />
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom Status Bar */}
-              <div className="relative flex items-center justify-between border-t border-white/10 bg-white/[0.03] px-5 py-2.5 font-mono text-[10px] text-muted">
-                <span className="flex items-center gap-1.5">
-                  <GitBranch className="h-3 w-3" />
-                  main
-                </span>
-                <span className="text-accent">Sifat Bin Anwar</span>
-                <span>TypeScript</span>
-              </div>
-            </div>
-
-            {/* Soft mirrored reflection under the window */}
+            {/* image shadow */}
             <div
               aria-hidden
-              className="pointer-events-none absolute left-0 right-0 top-full mt-2 h-24 overflow-hidden rounded-2xl opacity-20 [mask-image:linear-gradient(to_bottom,black,transparent)]"
-            >
-              <div className="scale-y-[-1] rounded-2xl border border-accent/20 bg-[#07100d]">
-                <div className="h-12 border-b border-white/10 bg-white/[0.03]" />
-              </div>
-            </div>
+              className="absolute bottom-[8%] left-1/2 h-16 w-[55%] -translate-x-1/2 rounded-full bg-black/50 blur-3xl"
+            />
+
+            {/* image */}
+            <img
+              src="/hero-portrait.png"
+              alt="Sifat Bin Anwar"
+              className="relative z-10 mx-auto block w-full max-w-[540px] object-contain drop-shadow-[0_25px_45px_rgba(0,0,0,0.5)]"
+            />
           </motion.div>
         </motion.div>
       </div>
     </section>
-  );
-}
-
-function CodeTyping() {
-  const code = `const developer = {
-  name: "Sifat Bin Anwar",
-  role: "Full-Stack Developer",
-  stack: ["React", "Next.js", "Node.js"],
-  database: ["MongoDB", "PostgreSQL"],
-  loves: "clean code & great UX"
-};`;
-
-  const [text, setText] = useState("");
-  const [deleting, setDeleting] = useState(false);
-
-  useEffect(() => {
-    let timeout: ReturnType<typeof setTimeout>;
-
-    if (!deleting && text.length < code.length) {
-      timeout = setTimeout(() => {
-        setText(code.slice(0, text.length + 1));
-      }, 32);
-    } else if (!deleting && text.length === code.length) {
-      timeout = setTimeout(() => setDeleting(true), 2800);
-    } else if (deleting && text.length > 0) {
-      timeout = setTimeout(() => {
-        setText(code.slice(0, text.length - 1));
-      }, 14);
-    } else {
-      timeout = setTimeout(() => setDeleting(false), 500);
-    }
-
-    return () => clearTimeout(timeout);
-  }, [text, deleting, code]);
-
-  return (
-    <>
-      <SyntaxHighlightedCode text={text} />
-      <span className="ml-1 animate-pulse text-accent">▋</span>
-    </>
-  );
-}
-
-function SyntaxHighlightedCode({ text }: { text: string }) {
-  const parts = text.split(
-    /(\"[^\"]*\"|\b(?:const|return)\b|\b(?:name|role|stack|database|loves)\b)/g
-  );
-
-  return (
-    <>
-      {parts.map((part, index) => {
-        if (/^\"[^\"]*\"$/.test(part)) {
-          return (
-            <span key={index} className="text-emerald-300">
-              {part}
-            </span>
-          );
-        }
-
-        if (/^(const|return)$/.test(part)) {
-          return (
-            <span key={index} className="text-purple-300">
-              {part}
-            </span>
-          );
-        }
-
-        if (/^(name|role|stack|database|loves)$/.test(part)) {
-          return (
-            <span key={index} className="text-cyan-300">
-              {part}
-            </span>
-          );
-        }
-
-        return (
-          <span key={index} className="text-foreground/80">
-            {part}
-          </span>
-        );
-      })}
-    </>
   );
 }
 
